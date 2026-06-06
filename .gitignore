@@ -3,3 +3,6 @@ target/
 
 # Java 编译文件
 *.class
+
+# Claude Code
+.claude/
