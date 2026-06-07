@@ -6,3 +6,6 @@ target/
 
 # Claude Code
 .claude/
+
+# Personal dev scripts (not for repo)
+start-server-yeh.bat
