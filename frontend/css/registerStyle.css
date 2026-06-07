@@ -5,77 +5,111 @@
 }
 
 body{
-    background: #000000;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f3e8ff 0%, #efe6ff 100%);
     display: flex;
     justify-content: center;
-    padding-top: 120px;
+    align-items: center;
+    padding: 40px;
+    color: #0f172a;
 }
 
 .register{
-    width:auto;
-    background: white;
-    padding: 35px;
-    border-radius: 8px;
-    box-shadow: 0 0 12px #ccc;
+    width: 100%;
+    max-width: 480px;
+    background: #ffffff;
+    padding: 36px 32px;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(16,24,40,0.08);
+    border: 1px solid rgba(15,23,42,0.04);
 }
 
-h2{
-    font-size: 40px;
+h1.main-title{
+    font-size: 24px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 8px;
+    color: #0f172a;
+    font-weight: 800;
+}
+
+h2.subtitle{
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #475569;
+    font-weight: 700;
 }
 
 .item{
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 label{
-    font-size: 22px;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #475569;
 }
 
 input{
-    width: 220px;
-    padding: 9px;
-    border-radius: 4px;
-    font-size: 12px;
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 8px;
+    border: 1px solid #e6edf3;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus{
+    border-color: #a78bfa;
+    box-shadow: 0 6px 20px rgba(167,139,250,0.12);
 }
 
 #registerBtn{
     width: 100%;
-    height: 36px;
-    background: white;
-    border-radius: 4px;
+    padding: 12px 16px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
     font-size: 16px;
+    font-weight: 700;
     cursor:pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
 #registerBtn:hover{
-    background: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(135,88,255,0.18);
 }
 
 #errorTip{
-    color: red;
+    color: #f87171;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 12px;
     font-size: 14px;
+    min-height: 18px;
 }
 
 #successTip{
-    color: green;
+    color: #10b981;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 12px;
     font-size: 14px;
 }
 
 .switchLink{
-    display: block;
-    text-align: right;
-    margin-top: 8px;
-    color: #3366cc;
+    display: inline-block;
+    margin-top: 18px;
+    color: #6d28d9;
     font-size: 14px;
     text-decoration: none;
 }
 
 .switchLink:hover{
-    text-decoration: underline;
+    color: #4c1d95;
 }
