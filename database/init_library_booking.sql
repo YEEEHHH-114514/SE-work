@@ -15,6 +15,8 @@ CREATE TABLE IF NOT EXISTS seat (
     id              BIGINT UNSIGNED  NOT NULL AUTO_INCREMENT  COMMENT '座位ID',
     floor           TINYINT UNSIGNED NOT NULL                 COMMENT '所属楼层',
     is_active       TINYINT UNSIGNED NOT NULL DEFAULT 1       COMMENT '是否可用(1=可用 0=停用)',
+    seat_type       TINYINT UNSIGNED NOT NULL DEFAULT 1       COMMENT '座位类型(1=单人研习位,2=大厅座位)',
+    seat_no         INT UNSIGNED      NOT NULL DEFAULT 0       COMMENT '类型内编号',
     PRIMARY KEY (id),
     INDEX idx_floor (floor)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='座位表';
