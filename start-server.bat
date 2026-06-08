@@ -7,8 +7,18 @@ if errorlevel 1 (
     pause
     exit /b
 )
-echo Starting server, enter MySQL password below...
-java -cp "lib\mysql-connector-j-8.0.33.jar;backend" main
+if "%~1" neq "" (
+    set "PASS=%~1"
+) else if defined MYSQL_ROOT_PASSWORD (
+    set "PASS=%MYSQL_ROOT_PASSWORD%"
+)
+if defined PASS (
+    echo Starting server using provided password...
+    java -cp "lib\mysql-connector-j-8.0.33.jar;backend" main %PASS%
+) else (
+    echo Starting server, enter MySQL password below...
+    java -cp "lib\mysql-connector-j-8.0.33.jar;backend" main
+)
 echo.
 echo Exit code: %errorlevel%
 pause
