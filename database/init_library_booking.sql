@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS booking (
     phone           VARCHAR(20)      DEFAULT NULL             COMMENT '联系电话',
     seat_id         BIGINT UNSIGNED  NOT NULL                 COMMENT '座位ID',
     booking_date    DATE             NOT NULL                 COMMENT '预约日期',
-    time_slot       TINYINT UNSIGNED NOT NULL                 COMMENT '时间段(6=06:00-08:00,8=08:00-10:00,...,22=22:00-24:00)',
+    time_slot       TINYINT UNSIGNED NOT NULL                 COMMENT '时间段(6=06:00-07:00 ... 21=21:00-22:00)',
     created_at      DATETIME         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     updated_at      DATETIME         NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     PRIMARY KEY (id),

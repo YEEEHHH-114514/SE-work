@@ -20,7 +20,7 @@ function formatTimeSlot(slot) {
     const value = Number(slot);
     if (Number.isNaN(value)) return '未知';
     const start = String(value).padStart(2, '0');
-    const end = String(value + 2).padStart(2, '0');
+    const end = String(value + 1).padStart(2, '0');
     return `${start}:00-${end}:00`;
 }
 
@@ -59,9 +59,8 @@ function initPage() {
 }
 
 function renderTimeSlots() {
-    // 2-hour slots: 6:00-8:00, 8:00-10:00, ..., 22:00-24:00
-    const slots = [6, 8, 10, 12, 14, 16, 18, 20, 22];
-    slots.forEach(h => {
+    // hours 6..21 represent hourly slots 06:00-07:00 ... 21:00-22:00
+    for (let h = 6; h <= 21; h++) {
         const id = 'slot-' + h;
         const label = document.createElement('label');
         label.style.display = 'inline-flex';
@@ -72,11 +71,11 @@ function renderTimeSlots() {
         chk.value = String(h);
         chk.id = id;
         const span = document.createElement('span');
-        span.innerText = h + ':00-' + (h+2) + ':00';
+        span.innerText = h + ':00-' + (h+1) + ':00';
         label.appendChild(chk);
         label.appendChild(span);
         timeSlotsContainer.appendChild(label);
-    });
+    }
 }
 
 function getSelectedTimeSlots() {
@@ -362,13 +361,13 @@ function startEditBooking(container, item) {
     phoneInputEdit.placeholder = '手机号';
 
     const slotSelect = document.createElement('select');
-    [6, 8, 10, 12, 14, 16, 18, 20, 22].forEach(h => {
+    for (let h = 6; h <= 21; h++) {
         const opt = document.createElement('option');
         opt.value = String(h);
-        opt.innerText = `${String(h).padStart(2,'0')}:00-${String(h+2).padStart(2,'0')}:00`;
+        opt.innerText = `${String(h).padStart(2,'0')}:00-${String(h+1).padStart(2,'0')}:00`;
         if (h === Number(item.timeSlot)) opt.selected = true;
         slotSelect.appendChild(opt);
-    });
+    }
 
     const seatSelect = document.createElement('select');
     const seatOpt = document.createElement('option');
